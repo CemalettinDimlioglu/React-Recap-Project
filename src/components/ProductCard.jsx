@@ -1,7 +1,7 @@
  import axios from "axios";
  import React from "react";
  const ProductCard = ({ item, getProducts }) => {
-   const url = "https://64b66bcedf0839c97e15895a.mockapi.io//products";
+   const url = "https://64b83b6221b9aa6eb079b2d2.mockapi.io/recap";
    const { name, image, price, dampingRate, amount, id } = item;
    const handleMinus = () => {};
    const handlePlus = () => {};
