@@ -3,11 +3,31 @@
  const ProductCard = ({ item, getProducts }) => {
    const url = "https://64b83b6221b9aa6eb079b2d2.mockapi.io/recap";
    const { name, image, price, dampingRate, amount, id } = item;
-   const handleMinus = () => {};
-   const handlePlus = () => {};
+   const handleMinus = async () => {
+     if (amount - 1) {
+       try {
+         await axios.put(`${url}/${id}`, {
+           ...item,
+           amount: amount - 1,
+         });
+       } catch (error) {}
+       getProducts();
+     } else {
+       handleRemove();
+     }
+   };
+   const handlePlus = async () => {
+     try {
+       await axios.put(`${url}/${id}`, {
+         ...item,
+         amount: amount + 1,
+       });
+     } catch (error) {}
+     getProducts();
+   };
    const handleRemove = async () => {
      try {
-       await axios.delete(`${url}/${id}/`);
+       await axios.delete(`${url}/${id}/`, {});
      } catch (error) {
        console.log(error);
      }
