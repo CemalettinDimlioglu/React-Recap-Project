@@ -5,7 +5,7 @@
  const UpdateProduct = () => {
    const { state: item } = useLocation();
    // console.log(item);
-   const url = "https://64b66bcedf0839c97e15895a.mockapi.io/products";
+   const url = "https://64b83b6221b9aa6eb079b2d2.mockapi.io/recap";
    const [formData, setFormData] = useState(item);
    const navigate = useNavigate();
    const handleChange = (e) => {
@@ -28,6 +28,7 @@
          handleChange={handleChange}
          handleSubmit={handleSubmit}
          formData={formData}
+         text="Update"
        />
      </div>
    );
